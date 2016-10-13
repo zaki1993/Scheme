@@ -1,0 +1,1 @@
+(define (fibonacci x) (if (or (= x 1) (= x 2)) 1 (+ (fibonacci (- x 1)) (fibonacci (- x 2)))))
