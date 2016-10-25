@@ -40,4 +40,4 @@
 
 (define (even_nums_list ls) (if(null? ls) '() (if(is_even (car ls)) (cons (car ls) (even_nums_list (cdr ls))) (even_nums_list (cdr ls)))))
 
-;(define (mfilter f xs)(cond ((null? xs)'()) ((p (car xs)) (cons (car xs) (mfilter (cdr xs)) (mfilter (cdr xs))))
+(define (mfilter f xs)(cond ((null? xs)'()) ((p (car xs)) (cons (car xs) (mfilter (cdr xs)) (mfilter (cdr xs))))
