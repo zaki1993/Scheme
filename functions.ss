@@ -40,4 +40,10 @@
 
 (define (even_nums_list ls) (if(null? ls) '() (if(is_even (car ls)) (cons (car ls) (even_nums_list (cdr ls))) (even_nums_list (cdr ls)))))
 
-;(define (mfilter f xs)(cond ((null? xs)'()) ((p (car xs)) (cons (car xs) (mfilter (cdr xs)) (mfilter (cdr xs))))
+(define (fact x) (if (<= x 1) 1 (* x (fact (- x 1))))) ;factorial function
+
+(define (fibonacci x) (if (or (= x 1) (= x 2)) 1 (+ (fibonacci (- x 1)) (fibonacci (- x 2))))) ;fibonacci function
+
+(define (max x y) (if (< x y) y x)) ;the bigger of two numbers
+
+(define (min x y) (if (> x y) y x))	;the smaller of two numbers
