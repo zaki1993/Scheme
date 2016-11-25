@@ -52,7 +52,7 @@
 
 #### cons
 	(cons 1 '()) => (1)
-	(cons 1 2) => (1.2)
+	(cons 1 2) => (1 . 2)
 
 #### set-car!
 	(define pair (cons 1 #t)) => (1 . #t)
