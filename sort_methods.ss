@@ -21,6 +21,6 @@
 (define (merge-sort lst)
 	(if (or (null? lst) (null? (cdr lst))) lst
 	(merge (merge-sort (take (div (length lst) 2) lst))
-	       (merge-sort (drop (div (length lst) 2) lst)))))
+	       (merge-sort (drop (div (length lst) 2) lst))))) ;sort a list using merge sort
 	       
 	       
