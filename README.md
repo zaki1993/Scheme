@@ -6,9 +6,24 @@
 #### string-append
 	(string-append "Hello" " world" "!") => "Hello world!"
 
+#### qusiquote
+	(quasiquote(1 (2 3 4) 5)) => (1 (2 3 4) 5)
+
+#### ,
+	(quasiquote(1 ,(list 2 3 4) 5)) => (1 (2 3 4) 5)
+	
+#### @
+	(qusiquote(1 ,@(2 3 4) 5)) => (1 2 3 4 5)
+	
 #### eqv?
 	(eqv? 'Pesho 'pesho) => #t
 	(eqv? 'Pesho 'Gosho) => #f
+	
+#### char?
+	(define x \#a)
+	(char? x) => #t
+	(char? \#a) => \x23 is not bound. That is why we should bind it to a variable first.
+	(char? 5) => #f
 	
 #### string?
 	(string? "Hello") => #t
@@ -26,8 +41,18 @@
 	(list? '()) => #t
 	(list? 1) => #f
 
+#### symbol?
+	(symbol? 'something) => #t
+	(symbol? '(1 2 3)) => #f
+	
+#### pair? 
+	(pair? (cons 1 2)) => #t
+	(pair? '(1 2)) => #t
+	(pair? '(1.2)) => #t
+	(pair? 5) =>#f
+		
 #### car
-	(car '(1 2 3)) => 1
+(car '(1 2 3)) => 1
 	
 #### cdr
 	(cdr '(1 2 3)) => (2 3)
@@ -53,7 +78,12 @@
 #### cons
 	(cons 1 '()) => (1)
 	(cons 1 2) => (1 . 2)
+	(cons 1 2 3) => Incorrect number of arguments error!
 
+#### cons*
+	(cons* 1 2 3) => (1 2 . 3)
+	(cons* 1 2 3 '()) => (1 2 3)
+	
 #### set-car!
 	(define pair (cons 1 #t)) => (1 . #t)
 	(set-car! pair 2) => (2 . #t)
@@ -67,9 +97,3 @@
 	
 #### list-tail
 	(list-tail '(1 2 3) 1) => (2 3)
-	
-#### pair?
-	(pair? '(1 2)) => #t
-	(pair? '(1 . 2)) => #t
-
-
