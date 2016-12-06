@@ -47,3 +47,10 @@
 (define (max x y) (if (< x y) y x)) ;the bigger of two numbers
 
 (define (min x y) (if (> x y) y x))	;the smaller of two numbers
+
+(define (pairs_first_last xs)(if (null? xs) '() (cons (car xs) (pairs (reverse (cdr xs))))))
+
+(define (find-max xs max)(cond ((null? xs) max)
+                           ((and (< max (caar xs)) (> (caar xs) (cdar xs))) (find-max (cdr xs) (caar xs)))
+                           ((and (< max (cdar xs)) (> (cdar xs) (caar xs))) (find-max (cdr xs) (cdar xs)))
+                           (else (find-max (cdr xs) max))))

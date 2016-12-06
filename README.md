@@ -1,5 +1,14 @@
 ### Scheme functions refference
 
+#### let
+	(let ((x 3) (y 2)) (* x y)) => 6
+	(define x 5)
+	(let ((x 3) (y x)) (* x y)) => 5 Because we defined x as global variable.
+
+#### let*
+	(define x 5)
+	(let ((x 3) (y x)) (* x y)) => 9
+	
 #### string-ref 
 	(string-ref "Hello" 0) => 'H'
 	
@@ -14,6 +23,11 @@
 	
 #### @
 	(qusiquote(1 ,@(2 3 4) 5)) => (1 2 3 4 5)
+	
+#### case
+	(case 4 ((1 2) ’A) ((3 4 5) ’B) (else ’C)) => B
+	(case x ((1 2) ’A) ((3 x 5) ’B) (else ’C)) => C
+	(case ’x ((1 x) ’A) ((3 4 5) ’B) (else ’C)) => A	
 	
 #### eqv?
 	(eqv? 'Pesho 'pesho) => #t
@@ -66,6 +80,9 @@
 #### cdar
 	(cdar '(1 (2 3)) = (cdr (car '((1 2) 3))) => 2
 	
+#### make-bytevector
+	(define x (make-bytevector 5) => #vu8(0 0 0 0 0)
+	
 #### make-vector
 	(define v (make-vector 5)) => #(0 0 0 0 0)
 	
@@ -73,7 +90,8 @@
 	(vector-ref v 2) => 0
 	
 #### vector-set!
-	(vector-set v 2 9) => #(0 0 9 0 0)
+	(vector-set! v 2 9) => #(0 0 9 0 0)
+	(vector-set! v 0 "hello") => #("hello" 0 9 0 0)
 
 #### cons
 	(cons 1 '()) => (1)
@@ -97,3 +115,7 @@
 	
 #### list-tail
 	(list-tail '(1 2 3) 1) => (2 3)
+
+#### ;
+	;it's a comment
+
